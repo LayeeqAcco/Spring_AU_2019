@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>LakerStation</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<style>
+	#vid{
+		padding: 20px;
+		max-width: 800px;
+	}
+	#suggests{
+		float: left;
+		max-width: 240px;
+	}
+	body{
+		padding: 20px;
+		background-color: lightcyan;
+	}
+	a{
+		text-decoration: none;
+	}
+	a:hover{
+		text-decoration: underlined;
+	}
+	#comments{
+		clear: both;
+		padding: 10px;
+	}
+	@media(min-width: 800px) {
+		#vid{
+			width: 100%;
+			float: left;
+		}
+		#suggests{
+			width: 100%;
+			float: left;
+		}
+	}
+	@media(max-width: 600px) {
+		#vid{
+			width: 100%;
+			float: left;
+		}
+		#suggests{
+			width: 100%;
+			float: left;
+		}
+		#disp{
+			width: 400px;
+			height: 280px;
+		}
+	}
+	@media(min-width: 900px) {
+		#vid{
+			width: 70%;
+			float: left;
+		}
+		#suggests{
+			width: 30%;
+			float: left;
+		}
+	}	
+	</style>
+
+	<body>
+		<div>
+			<a href="LakerStation.html"><img src="items/logo.png" title="LOGO" width="200"></a>
+		</div><hr>
+		<div>
+			<section>
+			<section id="vid">
+				<video id="disp" controls autoplay width="640" height="360">
+					<source src="items/SampleVideo.mp4" type="video/mp4">
+					Browser not supported
+				</video>
+				<h2>VIDEO SAMPLE 2019</h2><hr>
+			</section>
+			<aside id="suggests">
+				<h3>SUGGESTIONS</h3>
+				<a href="LakerStation.html"><img title="Suggestion 1" src="items/logo.png" width="100" height="80"><br>
+				SUGGESTION 1</a><br><br>
+				<a href="LakerStation.html"><img title="Suggestion 2" src="items/logo.png" width="100" height="80"><br>
+				SUGGESTION 2</a><br><br>
+				<a href="LakerStation.html"><img title="Suggestion 3" src="items/logo.png" width="100" height="80"><br>
+				SUGGESTION 3</a><br><br>
+			</aside>
+			</section>
+		</div><br>
+
+		<div id="comments">
+		<h3>COMMENTS</h3>
+		The video is pretty cool!!<br>
+		<button class="like"><img src="items/like.png" width="20" height="20"></button>
+		<button class="unlike"><img src="items/unlike.png" width="20" height="20"></button><br><br>
+		
+		What does this video even imply?<br>
+		<button class="like"><img src="items/like.png" width="20" height="20"></button>
+		<button class="unlike"><img src="items/unlike.png" width="20" height="20"></button><br>
+		</div>
+	</body>

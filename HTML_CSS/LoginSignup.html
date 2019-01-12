@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+	<title>Access</title>
+	<meta charset="UTF-8">
+	</head>
+
+	<style>
+	ul {
+  	list-style-type: none;
+  	margin: 0;
+  	padding: 0;
+  	overflow: hidden;
+  	background-color: #333;
+	}
+
+	li {
+  	float: left;
+  	border-right:1px solid #bbb;
+	}
+
+	li:last-child {
+  	border-right: none;
+	}
+
+	li a {
+  	display: block;
+  	color: white;
+  	text-align: center;
+  	padding: 14px 16px;
+	text-decoration: none;
+	}
+
+	li a:hover:not(.active) {
+  	background-color: darkgray;
+	}
+
+	.active {
+  	background-color: brown;
+	}
+
+	body{
+		background-image: url("items/back.png");
+	}
+	form{
+	box-sizing: border-box;
+	padding: 5px;
+	font-size: 18px;
+	align: center;
+	}
+
+	input{
+	margin-bottom: 10px;
+	}
+
+	td{
+	padding: 0 5px 0 5px;
+	}
+	</style>
+
+	<body>
+		<div><ul>
+  		<li><a class="active" href="#home">Home</a></li>
+  		<li><a href="#Departments">Departments</a></li>
+  		<li><a href="#Stores">Stores</a></li>
+  		<li style="float:right"><a href="#about">About</a></li>
+		</ul></div>	
+		
+		<h2>WEBPAGE CONTENT</h2><br>		
+		<div class="forms"><center>
+		<form onsubmit="handler()">
+			<input type="radio" id="signup" name="operation" value="Sign Up" onclick="fields()" checked><label for="signup">SIGNUP 
+			<input type="radio" id="login" name="operation" value="Login" onclick="fields()"><label for="login">LOGIN<br>
+			<table>
+			<tr>
+				<td><label for="user">USERNAME</td>
+				<td><input type="text" id="user" required></td>
+			</tr>
+			<tr>	
+				<td><label for="pwd1">PASSWORD</td>
+				<td><input type="password" id="pwd1" required></td>
+			</tr>
+			<tr>
+				<td><label for="pwd2">RE-ENTER PASSWORD</td>
+				<td><input type="password" id="pwd2"></td>
+			</tr>
+			<tr>
+				<td><label for="email">EMAIL</td>
+				<td><input type="email" id="email"></td>
+			</tr>
+			</table>
+			<input type="submit" value="SUBMIT">
+			
+		</form><center>
+		</div>
+	</body>
+
+	<script>
+	var fields = function(){
+		var signup = document.getElementById("signup");
+		var pwd2 = document.getElementById("pwd2");
+		var email = document.getElementById("email");
+		if(signup.checked){
+			pwd2.disabled=false;
+			email.disabled=false;
+		}
+		else{
+			pwd2.disabled = true;
+			email.disabled = true;
+		}
+	}
+
+	var handler = function(){
+		var signup = document.getElementById("signup");
+		var pwd1 = document.getElementById("pwd1").value;
+		var user = document.getElementById("user").value;
+		if(signup.checked){
+			var pwd2 = document.getElementById("pwd2").value;
+			var email = document.getElementById("email").value;
+			if(!(pwd1 == pwd2)) {alert("Password Mismatch"); return -1;}
+			localStorage.setItem("user",user);
+			localStorage.setItem("password",pwd1);
+			localStorage.setItem("email",email);
+			alert("SignUp Successful");
+		}
+		else{
+			if(user!=localStorage.getItem("user") || pwd1!=localStorage.getItem("password"))
+				alert("Invalid username or password");
+			else {alert("Login Successful"); window.open("LakerStation.html");}
+		}
+	}
+	</script>
+
+
+</html>
