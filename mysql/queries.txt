@@ -1,0 +1,117 @@
+CREATE DATABASE TaxiMgmt;
+USE TaxiMgmt;
+
+CREATE TABLE Customer(
+custID int primary key,
+fname varchar(15),
+lname varchar(15),
+phoneNo bigint,
+email varchar(30)
+);
+
+CREATE TABLE Driver(
+DriverID int primary key,
+fname varchar(15),
+lname varchar(15),
+DLNo varchar(20),
+phoneNo bigint,
+email varchar(30)
+);
+
+CREATE TABLE Vehicle(
+RegNo varchar(12) primary key,
+Model varchar(10),
+Make varchar(10),
+VType varchar(10),
+DriverID int,
+foreign key(DriverID) references Driver(DriverID)
+);
+
+CREATE TABLE Payment(
+PayID int primary key,
+Method varchar(10),
+PayStatus varchar(10),
+Amount float,
+CustID int,
+foreign key (CustID) references Customer(CustID)
+);
+
+CREATE TABLE Trip(
+TripID int primary key,
+TripStatus varchar(10),
+TripDate date,
+StartTime time,
+EndTime time,
+StartAddress varchar(30),
+EndAddress varchar(30),
+CustID int,
+foreign key (CustID) references Customer(CustID)
+);
+
+ALTER TABLE Trip ADD COLUMN rating varchar(5);
+ALTER TABLE Trip ADD COLUMN VehicleID varchar(12);
+ALTER TABLE Trip ADD foreign key(VehicleID) references Vehicle(RegNo);
+
+CREATE TABLE PaymentLinkedTo(
+TripID int,
+PayID int,
+primary key(TripID,PayID),
+foreign key(TripID) references Trip(TripID),
+foreign key(PayID) references Payment(PayID)
+);
+
+INSERT INTO Customer VALUES(121,"Kumar","Shantanu",8329231111,"kshantanu@gmail.com");
+INSERT INTO Customer VALUES(123,"Layeeq","Ahmed",9393939393,"layeeq@gmail.com");
+INSERT INTO Customer VALUES(125,"Akil","Kotakota",8321231312,"akhil@gmail.com");
+INSERT INTO Customer VALUES(126,"Kumar","Technical",8329222222,"kumartech@gmail.com");
+
+SELECT * FROM Customer;
+
+INSERT INTO Driver VALUES(777,"Khamar","Singh","KA2016ABCD",9222441111,"ksingh@gmail.com");
+INSERT INTO Driver VALUES(779,"Kiran","Salmeer","KA2017WWWQ",9333441111,"ksalmeer@gmail.com");
+
+INSERT INTO Vehicle VALUES
+("KA04HT3813","Swift","Maruti","Premium",779),
+("KA04JM4556","Indica","Tata","Standard",777);
+
+SELECT fname,lname,Vtype
+FROM Driver AS d 
+JOIN Vehicle AS v
+ON d.DriverID = v.DriverID;
+
+INSERT INTO Trip VALUES
+(1,"Completed","2019-01-01","14:14:14","16:00:00","Belandur","Jayanagar",121,0,"KA04HT3813"),
+(2,"Ongoing","2019-01-01","15:15:15","15:45:12","Nagawara","KR Puram",123,0,"KA04JM4556");
+
+INSERT INTO Trip VALUES
+(3,"Completed","2019-01-01","12:12:12","13:00:00","abcd","ghij",123,0,"KA04HT3813");
+
+INSERT INTO Payment VALUES
+(9212,"UPI","Success",245.32,123),
+(9213,"DebitCard","Pending",332.21,121),
+(9214,"UPI","Pending",143.32,123);
+
+INSERT INTO PaymentLinkedTo VALUES
+(2,9212),
+(1,9213),
+(3,9214);
+
+CREATE VIEW CustPay AS
+SELECT fname, lname, PayID, Amount
+FROM Customer, Payment
+WHERE Customer.CustID = Payment.CustID;
+
+SELECT fname, Amount
+FROM CustPay;
+
+delimiter //
+CREATE PROCEDURE TripCount(IN CustomerID int)
+begin
+	SELECT COUNT(*) FROM Customer, Trip
+    WHERE Customer.CustID = CustomerID
+    AND Customer.CustID = Trip.CustID;
+end
+//
+
+CALL TripCount(121);
+CALL TripCount(123);
