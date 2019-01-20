@@ -1,0 +1,106 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="C:\Users\Layeeq.Ahmed\Documents\SOAPWorkspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SoapAssignment\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="PersonInterface" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="update" qname="ns1:update" returnQName="ns1:updateReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://soap.assignment.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:id" type="xsd:int"/>
+   <ns2:parameter qname="ns1:name" type="xsd:string"/>
+   <ns2:parameter qname="ns1:age" type="xsd:int"/>
+  </ns2:operation>
+  <ns1:operation name="delete" qname="ns2:delete" returnQName="ns2:deleteReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://soap.assignment.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:id" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="read" qname="ns3:read" returnQName="ns3:readReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://soap.assignment.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:id" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="insert" qname="ns4:insert" returnQName="ns4:insertReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://soap.assignment.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:id" type="xsd:int"/>
+   <ns1:parameter qname="ns4:name" type="xsd:string"/>
+   <ns1:parameter qname="ns4:age" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="readAll" qname="ns5:readAll" returnQName="ns5:readAllReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://soap.assignment.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:parameter name="allowedMethods" value="read update insert delete readAll"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="PersonInterface"/>
+  <ns1:parameter name="className" value="com.assignment.soap.PersonInterface"/>
+  <ns1:parameter name="wsdlServicePort" value="PersonInterface"/>
+  <ns1:parameter name="schemaQualified" value="http://soap.assignment.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://soap.assignment.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="PersonInterfaceService"/>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="PersonFunctions" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="update" qname="ns6:update" returnQName="ns6:updateReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://soap.assignment.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns6:id" type="xsd:int"/>
+   <ns1:parameter qname="ns6:name" type="xsd:string"/>
+   <ns1:parameter qname="ns6:age" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="delete" qname="ns7:delete" returnQName="ns7:deleteReturn" returnType="xsd:string" soapAction="" xmlns:ns7="http://soap.assignment.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns7:id" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="read" qname="ns8:read" returnQName="ns8:readReturn" returnType="xsd:string" soapAction="" xmlns:ns8="http://soap.assignment.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns8:id" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="create" qname="ns9:create" returnQName="ns9:createReturn" returnType="xsd:string" soapAction="" xmlns:ns9="http://soap.assignment.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns9:id" type="xsd:int"/>
+   <ns1:parameter qname="ns9:name" type="xsd:string"/>
+   <ns1:parameter qname="ns9:age" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="readAll" qname="ns10:readAll" returnQName="ns10:readAllReturn" returnType="xsd:string" soapAction="" xmlns:ns10="http://soap.assignment.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:parameter name="allowedMethods" value="read update create delete readAll"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="PersonFunctions"/>
+  <ns1:parameter name="className" value="com.assignment.soap.PersonFunctions"/>
+  <ns1:parameter name="wsdlServicePort" value="PersonFunctions"/>
+  <ns1:parameter name="schemaQualified" value="http://soap.assignment.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://soap.assignment.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="PersonFunctionsService"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>
