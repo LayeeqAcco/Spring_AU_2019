@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="3ca5129c-af1f-4eac-9f29-456004873ea7" activeEnvironment="Default" name="PersonInterface" resourceRoot="" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="da49b555-66d0-4d2f-9a06-d35999dcb80c" wsaVersion="NONE" name="PersonInterfaceSoapBinding" type="wsdl" bindingName="{http://soap.assignment.com}PersonInterfaceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8081/SoapAssignment/services/PersonInterface?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8081/SoapAssignment/services/PersonInterface?WSDL"><con:part><con:url>http://localhost:8081/SoapAssignment/services/PersonInterface?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://soap.assignment.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://soap.assignment.com" xmlns:intf="http://soap.assignment.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+  <wsdl:types>
+    <schema elementFormDefault="qualified" targetNamespace="http://soap.assignment.com" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="update">
+        <complexType>
+          <sequence>
+            <element name="id" type="xsd:int"/>
+            <element name="name" type="xsd:string"/>
+            <element name="age" type="xsd:int"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateResponse">
+        <complexType>
+          <sequence>
+            <element name="updateReturn" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="delete">
+        <complexType>
+          <sequence>
+            <element name="id" type="xsd:int"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deleteResponse">
+        <complexType>
+          <sequence>
+            <element name="deleteReturn" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="read">
+        <complexType>
+          <sequence>
+            <element name="id" type="xsd:int"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="readResponse">
+        <complexType>
+          <sequence>
+            <element name="readReturn" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="insert">
+        <complexType>
+          <sequence>
+            <element name="id" type="xsd:int"/>
+            <element name="name" type="xsd:string"/>
+            <element name="age" type="xsd:int"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="insertResponse">
+        <complexType>
+          <sequence>
+            <element name="insertReturn" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="readAll">
+        <complexType/>
+      </element>
+      <element name="readAllResponse">
+        <complexType>
+          <sequence>
+            <element name="readAllReturn" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="updateResponse">
+    <wsdl:part element="impl:updateResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteRequest">
+    <wsdl:part element="impl:delete" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertResponse">
+    <wsdl:part element="impl:insertResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateRequest">
+    <wsdl:part element="impl:update" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="readResponse">
+    <wsdl:part element="impl:readResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="readAllRequest">
+    <wsdl:part element="impl:readAll" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="readAllResponse">
+    <wsdl:part element="impl:readAllResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertRequest">
+    <wsdl:part element="impl:insert" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteResponse">
+    <wsdl:part element="impl:deleteResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="readRequest">
+    <wsdl:part element="impl:read" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PersonInterface">
+    <wsdl:operation name="update">
+      <wsdl:input message="impl:updateRequest" name="updateRequest"></wsdl:input>
+      <wsdl:output message="impl:updateResponse" name="updateResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <wsdl:input message="impl:deleteRequest" name="deleteRequest"></wsdl:input>
+      <wsdl:output message="impl:deleteResponse" name="deleteResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="read">
+      <wsdl:input message="impl:readRequest" name="readRequest"></wsdl:input>
+      <wsdl:output message="impl:readResponse" name="readResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insert">
+      <wsdl:input message="impl:insertRequest" name="insertRequest"></wsdl:input>
+      <wsdl:output message="impl:insertResponse" name="insertResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="readAll">
+      <wsdl:input message="impl:readAllRequest" name="readAllRequest"></wsdl:input>
+      <wsdl:output message="impl:readAllResponse" name="readAllResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PersonInterfaceSoapBinding" type="impl:PersonInterface">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="update">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="updateRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="deleteRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="read">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="readRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="readResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insert">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="insertRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="insertResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="readAll">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="readAllRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="readAllResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PersonInterfaceService">
+    <wsdl:port binding="impl:PersonInterfaceSoapBinding" name="PersonInterface">
+      <wsdlsoap:address location="http://localhost:8081/SoapAssignment/services/PersonInterface"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8081/SoapAssignment/services/PersonInterface</con:endpoint></con:endpoints><con:operation id="394ff546-bc53-49be-9a77-0281c1a6b299" isOneWay="false" action="" name="delete" bindingOperationName="delete" type="Request-Response" outputName="deleteResponse" inputName="deleteRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="14fe50d1-757c-4220-a39c-a2c06ed7f417" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/SoapAssignment/services/PersonInterface</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.assignment.com">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:delete>\r
+         <soap:id>129</soap:id>\r
+      </soap:delete>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.assignment.com/PersonInterface/deleteRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="cd6d1037-e3dd-4f99-b3c5-927cc7912290" isOneWay="false" action="" name="insert" bindingOperationName="insert" type="Request-Response" outputName="insertResponse" inputName="insertRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3b87ff36-b8b7-4184-b6ed-8a334399c663" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/SoapAssignment/services/PersonInterface</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.assignment.com">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:insert>\r
+         <soap:id>129</soap:id>\r
+         <soap:name>NewName</soap:name>\r
+         <soap:age>44</soap:age>\r
+      </soap:insert>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.assignment.com/PersonInterface/insertRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="31c53a7d-dce7-4dd4-a7c3-0b3e4b416fe1" isOneWay="false" action="" name="read" bindingOperationName="read" type="Request-Response" outputName="readResponse" inputName="readRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="236b26c1-9f7d-4e8d-a6b0-b0562d09836b" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/SoapAssignment/services/PersonInterface</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.assignment.com">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:read>\r
+         <soap:id>129</soap:id>\r
+      </soap:read>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.assignment.com/PersonInterface/readRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b3d34932-09a0-4d56-b4d6-a09c2db926d4" isOneWay="false" action="" name="readAll" bindingOperationName="readAll" type="Request-Response" outputName="readAllResponse" inputName="readAllRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f16042e1-d73f-420e-9032-c855b513d406" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/SoapAssignment/services/PersonInterface</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.assignment.com">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:readAll/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.assignment.com/PersonInterface/readAllRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="3c1c62d6-dd97-4227-9a6d-0867b6ecf8fd" isOneWay="false" action="" name="update" bindingOperationName="update" type="Request-Response" outputName="updateResponse" inputName="updateRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="34d18557-d5a9-4a0a-94bf-732a8611fc85" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/SoapAssignment/services/PersonInterface</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.assignment.com">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:update>\r
+         <soap:id>129</soap:id>\r
+         <soap:name>UPDATED NAME</soap:name>\r
+         <soap:age>22</soap:age>\r
+      </soap:update>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.assignment.com/PersonInterface/updateRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

@@ -5,3 +5,5 @@ PersonInterface class defines methods which invoke corresponding methods of Pers
 
 WSDL file can be found in wsdl directoory of WebContent directory.
 Can be run through SoapUI. Generate new WSDL for your server.
+
+Screenshots for the operations through SoapUI are provided in Screenshots directory.
