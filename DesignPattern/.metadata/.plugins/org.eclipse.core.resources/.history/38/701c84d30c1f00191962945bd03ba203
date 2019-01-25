@@ -1,0 +1,29 @@
+package com.design.abstractfactory;
+
+public class TennisBall implements Ball {
+
+	@Override
+	public String getColor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setColor(String color) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public int getSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setSize(int size) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,6 @@
+package com.design.abstractfactory;
+
+public interface Ball {
+	public String getColor();
+	public void setColor();
+}

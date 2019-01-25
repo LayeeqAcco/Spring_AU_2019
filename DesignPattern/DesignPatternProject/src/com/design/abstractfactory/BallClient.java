@@ -1,0 +1,14 @@
+package com.design.abstractfactory;
+
+public class BallClient {
+
+	public static void main(String[] args) {
+		Ball tennis = BallFactory.ballProducer(new TennisBallFactory());
+		
+		Ball cricket = BallFactory.ballProducer(new CricketBallFactory());
+		
+		System.out.println(tennis);
+		System.out.println(cricket);
+	}
+
+}

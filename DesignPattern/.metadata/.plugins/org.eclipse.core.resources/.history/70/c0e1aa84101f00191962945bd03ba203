@@ -1,0 +1,10 @@
+package com.design.abstractfactory;
+
+public class CricketBallFactory extends BallAbstractFactory{
+
+	@Override
+	public Ball getBall(String color, int size) {
+		return new CricketBall(color,size);
+	}
+	
+}

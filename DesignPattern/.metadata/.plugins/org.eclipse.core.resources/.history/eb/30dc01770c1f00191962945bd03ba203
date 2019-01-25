@@ -1,0 +1,5 @@
+package com.design.abstractfactory;
+
+public interface Ball {
+	public String color;
+}

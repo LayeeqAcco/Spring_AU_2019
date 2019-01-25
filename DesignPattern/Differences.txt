@@ -1,0 +1,10 @@
+The Abstract Factory Pattern
+Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
+The Abstract Factory pattern is very similar to the Factory Method pattern. One difference between the two is that with the Abstract Factory pattern, a class delegates the responsibility of object instantiation to another object via composition whereas the Factory Method pattern uses inheritance and relies on a subclass to handle the desired object instantiation.
+Actually, the delegated object frequently uses factory methods to perform the instantiation.
+
+Factory pattern
+Factory patterns are examples of creational patterns
+Creational patterns abstract the object instantiation process. They hide how objects are created and help make the overall system independent of how its objects are created and composed.
+Class creational patterns focus on the use of inheritance to decide the object to be instantiated Factory Method
+Object creational patterns focus on the delegation of the instantiation to another object Abstract Factory

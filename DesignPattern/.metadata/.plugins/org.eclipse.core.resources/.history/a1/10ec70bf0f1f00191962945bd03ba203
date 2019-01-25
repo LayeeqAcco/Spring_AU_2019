@@ -1,0 +1,8 @@
+package com.design.abstractfactory;
+
+public class BallFactory {
+	public static Ball ballProducer(String type) {
+		if(type.equalsIgnoreCase("Cricket"))
+			return new CricketBallFactory(); 
+	}
+}

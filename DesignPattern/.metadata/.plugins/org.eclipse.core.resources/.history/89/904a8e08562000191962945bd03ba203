@@ -1,0 +1,9 @@
+package com.design.abstractfactory;
+
+public class BallClient {
+
+	public static void main(String[] args) {
+		BallAbstractFactory ballFactory = BallFactory.ballProducer("Cricket");
+	}
+
+}
