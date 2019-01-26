@@ -1,0 +1,48 @@
+<p class="sectionheader">
+  WELCOME TO LIBRARY
+</p>
+
+<!-- <div class = "listDiv">
+  <ul>
+    <li *ngFor="let book of books">
+      {{book.bookName}}
+    </li>
+  </ul>
+</div> -->
+<br>
+
+<div class="jumbotron">
+    <h3>BOOKS LIST</h3>
+  <ul class="list-group">
+    <li *ngFor="let book of books">
+      <a [routerLink]="['/book',book.id]" routerLinkActive = "active">{{book.bookName}}</a>
+      <button (click)="checkout(book.id)" style="float:right" class="btn btn-primary">Checkout</button>
+    </li>
+  </ul>
+</div>
+<br><BR>
+
+<div class="jumbotron">
+  <h3>Add a Book:</h3>
+  <div>
+      <label for="bookId">ID:</label>
+      <input type="text" id="bookId" [(ngModel)]="book.id">
+  </div>
+  <div>
+      <label for="title">Title:</label>
+      <input type="text" id="title" [(ngModel)]="book.bookName">
+  </div>
+  <div>
+      <label for="author">Author:</label>
+      <input type="text" id="author" [(ngModel)]="book.authorName">
+  </div>
+  <div>
+      <label for="price">Price:</label>
+      <input type="text" id="price" [(ngModel)]="book.price">
+  </div>
+  <div>
+    <label for="desc">Description:</label>
+    <input type="text" id="desc" [(ngModel)]="book.description">
+ </div>
+  <button type="button" (click)="postData()">ADD BOOK</button>
+</div>

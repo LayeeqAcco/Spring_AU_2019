@@ -1,0 +1,20 @@
+<p class="sectionheader">
+  SEARCH PAGE <br>
+  <!-- <span class="books">
+    Those are my books!
+  </span>
+</p>
+<br>
+<span *ngIf="book && book.bookName">{{book.bookName}}</span>
+<BR>
+<span class="books">Done?</span> -->
+<p>ENTER ID TO SEARCH DETAILS</p>
+<div>
+  <label for="id">Book ID:</label>
+  <input type="text" id="id" [(ngModel)]="id">
+</div>
+<button type="button" (click)="getId()">SEARCH BOOK</button>
+<br><br>
+<span *ngIf="book && book.bookName">
+  Book Name : <a [routerLink]="['/book',book.id]" routerLinkActive="active">{{book.bookName}}</a></span>
+

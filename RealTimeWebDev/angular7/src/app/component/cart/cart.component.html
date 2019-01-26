@@ -1,0 +1,8 @@
+<p align="left">CART DETAILS</p>
+<div class="list">
+  <ul>
+    <li *ngFor="let item of list" class="list-group">
+      <a [routerLink]="['/book',item.id]" routerLinkActive="active"  class="list-group-item">{{ item.bookName }}</a>
+    </li>
+  </ul>
+</div>
